@@ -1,11 +1,8 @@
-const input1 = require('prompt-sync')();
-let water = input1("Write how many ml of water the coffee machine has:");
-const input2 = require('prompt-sync')();
-let milk = input2("Write how many ml of milk the coffee machine has:");
-const input3 = require('prompt-sync')();
-let coffeeBeans = input3("Write how many grams of coffee beans the coffee machine has:");
-const input4 = require('prompt-sync')();
-let cups = input4("Write how many cups of coffee you will need:");
+const input = require('prompt-sync')();
+let water = input("Write how many ml of water the coffee machine has:");
+let milk = input("Write how many ml of milk the coffee machine has:");
+let coffeeBeans = input("Write how many grams of coffee beans the coffee machine has:");
+let cups = input("Write how many cups of coffee you will need:");
 
 Math.floor(water);
 Math.floor(milk);
@@ -26,5 +23,5 @@ if (cups === coffeeCount) {
     coffeeCount = coffeeCount - cups;
     console.log("Yes, I can make that amount of coffee (and even " + coffeeCount + " more than that");
 } else if (cups > coffeeCount) {
-    console.log("No, I can make only " + coffeeCount + " cups of coffee");
+    console.log("No, I can make only " + coffeeCount + " cup(s) of coffee");
 }
