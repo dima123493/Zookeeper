@@ -1,370 +1,304 @@
-# Coffee Machine
+﻿# **Simple Currency Converter**
 
-What can be better than a cup of coffee during a break? Two cups. Press a couple of buttons on the machine, and, voilà, a burst of raw energy is in your hands. But first, we should teach the machine how to do it. In this project, I have worked on a coffee machine simulator. This machine uses regular ingredients — coffee, milk, and plastic cups. Should it run out of something, it will show you a notification. This device will serve espresso, cappuccino, and latte. And since nothing is for free, it will also charge coffee lovers for a cup.
+Have you ever wondered how many Japanese yens you can have for 100 USD? This project represents a program that converts a provided currency to another.
 
-## Work on project. Stage 1/6: Making coffee
+## **Stage 1/4: Welcome to Simple Currency Converter**
 
-###### Description
-Let's start with a program that makes you a coffee – a virtual coffee, of course. In this project, you will implement functionality that imitates a real coffee machine. It can run out of ingredients, such as milk or coffee beans. It can offer you various types of coffee, and, finally, it requires money to serve you a drink.
+##### **Description**
+To start things off, I added a message printing greetings to users: *"Welcome to Currency Converter!"*
 
-###### Objective
-The first version of the program makes coffee, nothing more. It should print what it is doing to the standard output. Take a look at the example below and output all the following lines.
+The next thing, is printing the list of currencies that the program can convert. For now, currencies and their equivalents in USD are displayed like this:
 
-###### Example
-Example 1: output of program
+| **Currency** | **Rate**  |
+|--------------|-----------|
+| **USD**      | **1.0**   |
+| **JPY**      | **113.5** |
+| **EUR**      | **0.89**  |
+| **RUB**      | **74.36** |
+| **GBP**      | **0.75**  |
+#####
+##### **Objectives**
+In this stage, my program outputs:
+- A welcome message;
+- A list of currencies and their rates.
 
-Starting to make a coffee  
-Grinding coffee beans  
-Boiling water  
-Mixing boiled water with crushed coffee beans  
-Pouring coffee into the cup  
-Pouring some milk into the cup  
-Coffee is ready!  
+##### **Example**
+The greater-than symbol followed by a space (> ) represents the user input.
 
-## Work on project. Stage 2/6: Ingredient calculator
+**Example 1:**
 
-###### Description
-Now, let's consider a case when you need a lot of coffee. You're hosting a party with a lot of guests! In these circumstances, it's better to make preparations in advance.
+Welcome to Currency Converter!  
+1 USD equals  1USD  
+1 USD equals  113.5 JPY   
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP
 
-We will ask users to enter the desired amount of coffee in cups. After this, the program should calculate how much water, coffee, and milk are necessary to make the specified amount of coffee.
+## **Stage 2/4: Convert a currency**
 
-Of course, this much coffee is not required right now, so at this stage, the coffee machine doesn't actually make coffee.
+##### **Description**
+In this stage, I start to convert provided amount of USD to the list of currencies in the first stage.
 
-###### Objectives
-Let's break the task into several steps:
+First, I print a message to let users know what the program can do:
 
-* Read how much coffee the machine needs to make (in cups);
-* Figure out how much of each ingredient is required. Note that one cup of coffee contains 200 ml of water, 50 ml of milk, and 15 g of coffee beans;
-* Output the required ingredients.
+*"I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP"*
+*"Type the currency you wish to convert: USD"*
 
-Examples
-The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
+Get input from users. Calculate and output the result that must take 4 decimal places.
 
-###### Example 1: an example of the program
+When getting the input for the desired currency, the program is able to process lower and uppercase letters. Also, if an unknown input is provided by users, 
+program prints the following message and stops: *"Unknown currency"*.
 
-Write how many cups of coffee you will need:  
--> 25  
-For 25 cups of coffee you will need:  
-5000 ml of water  
-1250 ml of milk  
-375 g of coffee beans  
+The value for the converted amount should not be less than **1**. If it's less, output *The amount cannot be less than 1.*
 
-###### Example 2: an example of the program
+##### **Objectives**
+In this stage, my program:
 
-Write how many cups of coffee you will need:  
--> 125  
-For 125 cups of coffee you will need:  
-25000 ml of water  
-6250 ml of milk  
-1875 g of coffee beans  
+- Outputs a new message about what it can do;
+- Asks for the currency and amount (see Examples);
+- Calculates and output the correct result;
+- Handles any uppercased or lowercased inputs;
+- Handles unknown currency input;
+- Handles an amount that is less than 1;
+##### **Examples**
+The greater-than symbol followed by a space (> ) represents the user input.
 
-## Work on project. Stage 3/6: Coffee for all
+**Example 1:** *converting to JPY*
 
-###### Description
-A real coffee machine doesn't have an infinite supply of water, milk, or coffee beans. And if you need a lot of coffee, it's almost certain that you will have to replenish the supplies sooner or later.
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > JPY  
+Amount: > 1  
+Result: 1 USD equals 113.5000 JPY
 
-In this stage, you need to improve the program from the previous stage. Now, you will check how much water, milk, and coffee beans are available for your coffee machine at the moment.
+**Example 2:** *converting to EUR*
 
-###### Objectives
-Write a program that does the following:
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > EUR  
+Amount: > 18  
+Result: 18 USD equals 16.0200 EUR
 
-It requests the amounts of water, milk, and coffee beans available at the moment and then asks for the number of required coffee cups;
-If the coffee machine has the supplies to make enough coffee, the program should print the following: Yes, I can make that amount of coffee.
-If the coffee machine can make more than that, the program should output Yes, I can make that amount of coffee (and even N more than that), where N is the number of extra cups.
-If you're running short, the program should output No, I can make only N cups of coffee.
-Like in the previous stage, the coffee machine needs 200 ml of water, 50 ml of milk, and 15 g of coffee beans for one cup.
+**Example 3:** *unknown currency*
 
-###### Examples
-The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > TL  
+Unknown currency
 
-Example 1: the right amount  
+**Example 4:** *wrong amount*
 
-Write how many ml of water the coffee machine has:  
--> 300  
-Write how many ml of milk the coffee machine has:  
--> 65  
-Write how many grams of coffee beans the coffee machine has:  
--> 100  
-Write how many cups of coffee you will need:  
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > USD  
+Amount: > -1  
+The amount cannot be less than 1
+
+**Example 5:** *wrong amount*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > USD
+Amount: > a  
+The amount has to be a number  
+
+**Example 6:** *lowercase handling*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD  
+To: > jpy  
+Amount: > 3  
+Result: 3 USD equals 340.5000 JPY  
+
+## **Stage 3/4: Convert all currencies**
+
+##### **Description**
+In this stage, my program starts converting all currencies between themselves.
+
+First, I remove the previous message:
+
+*I can convert USD to these currencies: JPY, EUR, RUB, USD, GBP  
+Type the currency you wish to convert: USD*  
+
+Then, output the following message: ***What do you want to convert?*** 
+After this, users provide input that indicates a currency to convert from. 
+Also, the program handles all unknown and invalid inputs like in the previous stage.  
+
+##### **Objectives**
+
+In this stage, my program should:
+
+- Ask for the currencies (see Examples);
+- Calculate and output the result;
+- Handle any unknown and incorrect inputs.
+##### **Examples**
+The greater-than symbol followed by a space (> ) represents the user input.
+
+**Example 1:** *EUR to GBP*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to convert?  
+From: > EUR  
+To: > GBP  
+Amount: > 115  
+Result: 115 EUR equals 96.9101 GBP  
+
+**Example 2:** *wrong input*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to convert?  
+From: > USD  
+To: > This is a currency, believe me!  
+Unknown currency   
+
+**Example 3:** *jpy to jpy*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to convert?  
+From: > jpy  
+To: > jpy  
+Amount: > 3  
+Result: 3 JPY equals 3.0000 JPY  
+
+## **Stage 4/4: Loop it!**
+
+##### **Description**
+In the final stage, I loop my program to make it run continuously until the exit command is prompted.
+
+First, it asks the user what they want to do: ***What do you want to do?***
+
+Gives two choices to users: one is conversion, the other is the exit. 
+Users need to input **1** and **2**, respectively: ***1-Convert currencies 2-Exit program***
+
+In case of any wrong input, program asks again for the input and repeat the process.
+
+Prints the following message when users choose to exit the program: ***Have a nice day!***
+
+Prints the following message when unknown input occurs: ***Unknown input***.
+
+##### **Objectives**
+
+In this stage, my program:
+
+1. Continuously asks for new currency input;
+2. Gives two choices to users;
+3. Handles unknown inputs.
+
+##### **Examples**
+
+The greater-than symbol followed by a space (-> ) represents the user input. 
+
+**Example 1:** *USD to JPY*
+
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
 -> 1  
-Yes, I can make that amount of coffee  
+What do you want to convert?  
+From: -> USD  
+To: -> JPY  
+Amount: -> 115  
+Result: 115 USD equals 13052.5000 JPY  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
 
-Example 2: not enough supplies  
+**Example 2:** *unknown currency*
 
-Write how many ml of water the coffee machine has:  
--> 500  
-Write how many ml of milk the coffee machine has:  
--> 250  
-Write how many grams of coffee beans the coffee machine has:  
--> 200  
-Write how many cups of coffee you will need:  
--> 10  
-No, I can make only 2 cups of coffee  
-
-Example 3: extra cups  
-
-Write how many ml of water the coffee machine has:  
--> 1550  
-Write how many ml of milk the coffee machine has:  
--> 299  
-Write how many grams of coffee beans the coffee machine has:  
--> 300  
-Write how many cups of coffee you will need:  
--> 3  
-Yes, I can make that amount of coffee (and even 2 more than that)  
-
-Example 4: an empty stock  
-
-Write how many ml of water the coffee machine has:  
--> 0  
-Write how many ml of milk the coffee machine has:  
--> 0  
-Write how many grams of coffee beans the coffee machine has:  
--> 0  
-Write how many cups of coffee you will need:  
+Welcome to Currency Converter! 
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
 -> 1  
-No, I can make only 0 cups of coffee  
+What do you want to convert?  
+From: > TL  
+Unknown currency  
+What do you want to convert?  
+From:  ...
 
-Example 5: a zero case  
+**Example 3:** *exiting the program*
 
-Write how many ml of water the coffee machine has:  
--> 0
-Write how many ml of milk the coffee machine has:  
--> 0
-Write how many grams of coffee beans the coffee machine has:  
--> 0  
-Write how many cups of coffee you will need:  
--> 0  
-Yes, I can make that amount of coffee  
-
-Example 6: extra cups  
-
-Write how many ml of water the coffee machine has:  
--> 200  
-Write how many ml of milk the coffee machine has:  
--> 50  
-Write how many grams of coffee beans the coffee machine has:  
--> 15  
-Write how many cups of coffee you will need:  
--> 0  
-Yes, I can make that amount of coffee (and even 1 more than that)  
-
-## Work on project. Stage 4/6: Buy, fill, take!
-
-###### Description
-Let's take a step forward! Our coffee machine will have a limited supply of water, milk, coffee beans, and disposable cups. Also, it will charge for making coffee.
-
-There are several features that we want you to implement. The machine should sell coffee. It should make different types of coffee — espresso, latte, and cappuccino. Of course, each variation requires a different amount of supplies. In any case, you need only one disposable cup for every drink. Furthermore, the coffee machine must be replenished by a special person. And lastly, another special person should be able to take out the money from the coffee machine.
-
-###### Objectives
-Write a program that offers to buy one cup of coffee, to fill the supplies, or to take the money from the machine. Note that the program is supposed to do only one of the mentioned actions at a time. It should also calculate the amounts of the remaining ingredients and how much money is in store. Display the number of supplies before and after a purchase.
-
-Your program reads one option from the standard input that is either buy, fill, or take. If users want to buy a cup of coffee, the correct command is buy. If a special person thinks that it is time to top up the supplies, the command is fill. If another special worker decides that it is time to take the money from the coffee machine, input take.
-If users choose buy, they need to pick one of the three coffee types: an espresso, a latte, or a cappuccino. Enumerate the options as follows: 1 - espresso, 2 - latte, 3 - cappuccino. In addition to that, take into account the amounts of supplies for each variation:
-One espresso requires 250 ml of water and 16 g of coffee beans. It costs $4;
-One latte requires 350 ml of water, 75 ml of milk, and 20 g of coffee beans. It costs $7;
-One cappuccino requires 200 ml of water, 100 ml of milk, and 12 g of coffee beans. It costs $6.
-If users write fill, the program should ask them how much water, milk, coffee, and how many disposable cups they want to add to the coffee machine.
-If users write take, the program should give all the money that it has earned.
-Name the actions as buy, fill, and take.
-
-For a start, the coffee machine has $550, 400 ml of water, 540 ml of milk, 120 g of coffee beans, and 9 disposable cups.
-
-To sum up, your program should print the state of the coffee machine, process one query from the user, and print the coffee machine state afterward. Try to employ functions for implementing various features.
-
-###### Examples
-The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
-
-Example 1: buying things  
-
-The coffee machine has:  
-400 ml of water  
-540 ml of milk  
-120 g of coffee beans  
-9 disposable cups  
-$550 of money  
-
-Write action (buy, fill, take):  
--> buy  
-What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:  
--> 3  
-
-The coffee machine has:  
-200 ml of water  
-440 ml of milk  
-108 g of coffee beans  
-8 disposable cups  
-$556 of money  
-
-Example 2: topping up  
-
-The coffee machine has:  
-400 ml of water  
-540 ml of milk  
-120 g of coffee beans  
-9 disposable cups  
-$550 of money  
-
-Write action (buy, fill, take):  
--> fill  
-Write how many ml of water you want to add:  
--> 2000  
-Write how many ml of milk you want to add:  
--> 500  
-Write how many grams of coffee beans you want to add:  
--> 100  
-Write how many disposable coffee cups you want to add:  
--> 10  
-
-The coffee machine has:  
-2400 ml of water  
-1040 ml of milk  
-220 g of coffee beans  
-19 disposable cups  
-$550 of money  
-
-Example 3: taking money from the bank  
-
-The coffee machine has:  
-400 ml of water  
-540 ml of milk  
-120 g of coffee beans  
-9 disposable cups  
-$550 of money  
-  
-Write action (buy, fill, take):  
--> take  
-I gave you $550  
-  
-The coffee machine has:  
-400 ml of water  
-540 ml of milk  
-120 g of coffee beans  
-9 disposable cups  
-$0 of money  
-
-## Work on project. Stage 5/6: Keeping track of the supplies
-
-###### Description
-We can carry on and make things more interesting, can't we? Let's improve the program so it can do multiple actions, one after another. It must repeatedly ask users what they want to do. Users can input either buy, fill, or take, and then the program does the same thing it did in the previous step. However, if users want to turn off the coffee machine, they should type in exit. The program terminates after this command. Also, when users type in remaining, the program should output all coffee machine resources. This means that you shouldn't show the remaining stock levels at the beginning/end of the program.
-
-###### Objectives
-Write a program that continuously makes coffee for everyone until the shutdown command is provided. Introduce two new options: remaining and exit.
-
-Do not forget that you can overstretch your supplies while making coffee. If the coffee machine doesn't have enough resources to make coffee, the program should output a message saying that it can't make it anymore and state what is missing.
-
-And the last improvement to the program at this step — if users enter buy to buy a cup of coffee but change their mind afterward, allow them to input back to return to the main menu.
-
-Set the following initial supplies: 400 ml of water, 540 ml of milk, 120 g of coffee beans, 9 disposable cups, $550.  
-
-###### Example
-The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
-
-Example 1: the program operations  
-
-Write action (buy, fill, take, remaining, exit):  
--> remaining  
-
-The coffee machine has:  
-400 ml of water  
-540 ml of milk  
-120 g of coffee beans  
-9 disposable cups  
-$550 of money  
-
-Write action (buy, fill, take, remaining, exit):  
--> buy  
-
-What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:  
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
 -> 2  
-I have enough resources, making you a coffee!  
+Have a nice day!
 
-Write action (buy, fill, take, remaining, exit):  
--> remaining  
+**Example 4:** *unknown input*
 
-The coffee machine has:  
-50 ml of water  
-465 ml of milk  
-100 g of coffee beans  
-8 disposable cups  
-$557 of money  
-
-Write action (buy, fill, take, remaining, exit):  
--> buy  
-
-What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:  
--> 2  
-Sorry, not enough water!  
-
-Write action (buy, fill, take, remaining, exit):  
--> fill  
-
-Write how many ml of water do you want to add:  
--> 1000  
-Write how many ml of milk do you want to add:  
--> 0  
-Write how many grams of coffee beans do you want to add:  
--> 0  
-Write how many disposable cups of coffee do you want to add:  
--> 0  
-
-Write action (buy, fill, take, remaining, exit):
--> remaining  
-
-The coffee machine has:  
-1050 ml of water  
-465 ml of milk  
-100 g of coffee beans  
-8 disposable cups  
-$557 of money  
-
-Write action (buy, fill, take, remaining, exit):
--> buy  
-
-What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:
--> 2  
-I have enough resources, making you a coffee!  
-
-Write action (buy, fill, take, remaining, exit):
--> remaining  
-
-The coffee machine has:
-700 ml of water  
-390 ml of milk  
-80 g of coffee beans  
-7  disposable cups  
-$564 of money  
-
-Write action (buy, fill, take, remaining, exit):
--> take  
-
-I gave you $564  
-
-Write action (buy, fill, take, remaining, exit):
--> remaining  
-
-The coffee machine has:  
-700 ml of water  
-390 ml of milk  
-80 g of coffee beans  
-7 disposable cups  
-$0 of money
-
-Write action (buy, fill, take, remaining, exit):  
--> exit
-
-## Work on project. Stage 6/6: The sandbox
-
-###### Description
-The time goes on, and the competitors are developing their own coffee machines to attract coffee lovers with special types of coffee or interesting features. It's time to enhance your coffee machine to compete with them!
-
-In this stage, you are free to add anything you want to your coffee machine!
-
-###### Objective
-Try to be creative and add something new to your coffee machine. It can be a new type of coffee, different milk flavors, or different volumes of disposable cups.
-
-###### Implemented
-Sometimes we all face a problem where we receive information that there are no ingredients in the coffee machine, and sometimes we waste a lot of time to understand which ingredients are needed.
-On this stage, I have added a display view of which ingredients and in what amount should be added to the coffee machine in order to make 1 cup of chosen drink.
-
-More features yet to come!
+Welcome to Currency Converter!  
+1 USD equals  1 USD  
+1 USD equals  113.5 JPY  
+1 USD equals  0.89 EUR  
+1 USD equals  74.36 RUB  
+1 USD equals  0.75 GBP  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
+-> a  
+Unknown input  
+What do you want to do?  
+1-Convert currencies 2-Exit program  
