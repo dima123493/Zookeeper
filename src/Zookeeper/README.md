@@ -33,7 +33,7 @@ For the second stage, you will need to develop an animal printer. Your program s
 
 ##### **Example**
 
-Your output should contain the following ASCII [image](src/Zookeeper/examples/camel.png)
+Your output should contain the following ASCII [image][([src/Zookeeper/examples/camel.png](https://github.com/dima123493/Zookeeper/blob/533deb49adad167b574ae1d965f74064c3bae3cc/src/Zookeeper/examples/camel.png))]
 
 ## **Stage 3/4: What's inside?**
 
@@ -59,8 +59,8 @@ You've reached the end of the program. To check another habitat, please restart 
 ##### **Examples**
 The greater-than symbol followed by a space (> ) represents the user input. Notice that it's not part of the input.
 
-[Example 1](src/Zookeeper/examples/rabit.png)  
-[Example 2](src/Zookeeper/examples/bat.png)  
+[Example 1]([src/Zookeeper/examples/rabit.png](https://github.com/dima123493/Zookeeper/blob/533deb49adad167b574ae1d965f74064c3bae3cc/src/Zookeeper/examples/rabit.png))  
+[Example 2]([src/Zookeeper/examples/bat.png](https://github.com/dima123493/Zookeeper/blob/533deb49adad167b574ae1d965f74064c3bae3cc/src/Zookeeper/examples/bat.png))  
 
 ## **Stage 4/4: Sustainable care <3**
 
@@ -80,4 +80,4 @@ When the program is done running, it should print: `See you later!`
 
 ##### **Examples**
 
-[Example 1](src/Zookeeper/examples/everything.png)
+[Example 1]([src/Zookeeper/examples/everything.png](https://github.com/dima123493/Zookeeper/blob/533deb49adad167b574ae1d965f74064c3bae3cc/src/Zookeeper/examples/everything.png))
